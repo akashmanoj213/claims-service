@@ -1,7 +1,6 @@
 import { Controller, Get, Post, Body, Patch, Param, Delete, HttpException, HttpStatus } from '@nestjs/common';
 import { ClaimService } from './claim.service';
 import { ClaimDto } from './dto/claim.dto';
-import { UpdateClaimDto } from './dto/update-claim.dto';
 
 @Controller('claims')
 export class ClaimController {
