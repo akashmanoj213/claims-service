@@ -18,7 +18,7 @@ export class ClaimDto {
     patientAdmissionDetails: PatientAdmissionDetailsDto
     hospitalDeclaration: HospitalDeclarationDto;
     doctorDeclaration: DoctorDeclarationDto;
-    patientDeclaration: PatientDeclarationDto
+    patientDeclaration: PatientDeclarationDto;
 }
 
 export enum ClaimStatus {
