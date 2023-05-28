@@ -6,10 +6,10 @@ import { MaternityDetailsDto } from "./maternity-details.dto";
 import { PatientAdmissionDetailsDto } from "./patient-admission-details.dto";
 
 export class ClaimDto {
-    id: number;
-    TPAName: string;
+    id: number; // will be generated for new claims
+    TPAName: string; // will be calculated based on the patient
     policyNumber: number;
-    insuranceCardNumber: number;
+    insuranceCardNumber: number; // might be generated at the time of issuance
     claimStatus: ClaimStatus;
     hospitalDetails: HospitlDetailsDto; // Check if hospital is in Network hospitals
     maternityDetails: MaternityDetailsDto; // Check if insurance covers Maternity
