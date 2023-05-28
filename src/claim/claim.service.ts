@@ -29,7 +29,7 @@ export class ClaimService {
     return `This action returns a #${id} claim`;
   }
 
-  async update(id: number, claim: ClaimDto) {
+  async update(id: string, claim: ClaimDto) {
     // The claim data is pulled from a topic. 
     return await this.firestoreService.update<ClaimDto>(this.CLAIMS_COLLECTION, id, claim);
 

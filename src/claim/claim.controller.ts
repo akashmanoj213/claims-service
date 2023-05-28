@@ -27,7 +27,7 @@ export class ClaimController {
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() claim: ClaimDto) {
-    return this.claimService.update(+id, claim);
+    return this.claimService.update(id, claim);
   }
 
   @Delete(':id')
