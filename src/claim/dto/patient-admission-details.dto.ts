@@ -3,22 +3,22 @@ export class PatientAdmissionDetailsDto {
     patientGender: string;
     patientDob: Date;
     dateAndTimeOfAdmission: Date;
-    contactNumber: number;
-    alternateContactNumber: number;
+    contactNumber: string;
+    alternateContactNumber: string;
     isEmergencyHospitalisation: boolean;
     isPlannedHospitalisation: boolean;
-    expectedNumberOfDaysStay: number;
-    expectedDaysInICU: number;
-    roomType: string;
-    roomNursingPatiendDietCharges: number;
-    expectedInvestigationDiagnosticsCost: number;
-    ICUCharges: number;
-    OTCharges: number;
-    professionalAnestheticFeesCosultationCharges: number;
-    medicineConsumableImplantCharges: number;
-    otherHospitalExpenses: number;
-    allInclusivePackageCharges: number;
-    sumTotalExpectedHospitalisationCost: number;
+    expectedNumberOfDaysStay: number; // is this part of hospital data
+    expectedDaysInICU: number; // is this part of hosptial data
+    roomType: string; // is this part of hospital data
+    roomNursingPatiendDietCharges: number; // is this part of hospital data
+    expectedInvestigationDiagnosticsCost: number; // is this part of hospital data
+    ICUCharges: number; // is this part of hospital data
+    OTCharges: number; // is this part of hospital data
+    professionalAnestheticFeesCosultationCharges: number; // is this part of hospital data
+    medicineConsumableImplantCharges: number; // is this part of hospital data
+    otherHospitalExpenses: number; // is this part of hospital data
+    allInclusivePackageCharges: number; // is this part of hospital data? IF THIS IS PART OF A PACKAGE THEN ARE THERE STILL INDIVIDUAL CHARGES ALLOTED ?
+    sumTotalExpectedHospitalisationCost: number; // is this part of hospital data? IF PACKAGE THEN WILL THIS BE SAME AS PACKAGE ?
     pastHistoryOfChronicIllnes: Array<PastChronicIllness>
 }
 

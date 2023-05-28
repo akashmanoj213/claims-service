@@ -15,9 +15,6 @@ export class PatientDeclarationDto {
 }
 
 export class HospitalDeclarationDto {
-    patientName: string;
-    contanctNumber: string;
-    emailId: string;
     declarationDateTime: Date;
     isSigned: boolean;
 }

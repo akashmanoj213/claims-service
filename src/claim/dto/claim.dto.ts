@@ -11,14 +11,14 @@ export class ClaimDto {
     policyNumber: number;
     insuranceCardNumber: number;
     claimStatus: ClaimStatus;
-    hospitalDetails: HospitlDetailsDto;
-    maternityDetaisl: MaternityDetailsDto;
+    hospitalDetails: HospitlDetailsDto; // Check if hospital is in Network hospitals
+    maternityDetails: MaternityDetailsDto; // Check if insurance covers Maternity
     doctorTreatmentDetails: DoctorTreatmentDetailsDto;
     accidentDetails: AccidentDetailsDto
     patientAdmissionDetails: PatientAdmissionDetailsDto
+    patientDeclaration: PatientDeclarationDto; // Check if names in declaration are same as the patient details
+    doctorDeclaration: DoctorDeclarationDto; //  Check if names in declaration are same as the doctor details
     hospitalDeclaration: HospitalDeclarationDto;
-    doctorDeclaration: DoctorDeclarationDto;
-    patientDeclaration: PatientDeclarationDto;
 }
 
 export enum ClaimStatus {

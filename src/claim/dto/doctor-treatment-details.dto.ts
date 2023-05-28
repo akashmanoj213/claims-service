@@ -1,18 +1,18 @@
 export class DoctorTreatmentDetailsDto {
     doctorName: string;
-    doctorContactNumber: number;
-    nameOfDisease: string;
+    doctorContactNumber: string;
+    nameOfDisease: string; // CHECK WITH DISEASE OR ICD CODE ?
     relevantClinicalFindings: string;
     durationOfAilment: number;
     dateOfFirstConsult: Date;
     pastHistoryOfAilment: string;
     provisionalDiagnosis: string;
-    ICDCode: string;
+    ICDCode: string; // Check if ICD code is within insurance coverage
     proposedLineOfTreatment: lineOfTreatment;
     investigationOrMedicalDetails: string;
     routeOfDrugAdministration: string;
     nameOfSurgery: string;
-    surgeryICDCode: string;
+    surgeryICDCode: string; // ANYTHING TO CROSS CHECK HERE ?
     otherTreatmentDetails: string;
     InjuryReason: string;
 }
