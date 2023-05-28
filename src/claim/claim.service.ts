@@ -21,8 +21,8 @@ export class ClaimService {
     // Figure out which TPA to push to and push to appropriate topic (Each TPA has its own topic. The subscriber then takes the data, transforms it and makes API call to TPA)
   }
 
-  findAll() {
-    return `This action returns all claim`;
+  async findAll() {
+    return await this.firestoreService.findAll(this.CLAIMS_COLLECTION);
   }
 
   findOne(id: number) {
