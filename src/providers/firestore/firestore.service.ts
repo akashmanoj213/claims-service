@@ -33,7 +33,7 @@ export class FirestoreService {
     }
 
     async update<T>(collectionName: string, id: number, entity: T) {
-        const docRef = this.db.collection(collectionName).doc(id);
+        const docRef = this.db.collection(collectionName).doc(id.toString());
         entity = {
             ...entity,
             updatedAt: Timestamp.now()
