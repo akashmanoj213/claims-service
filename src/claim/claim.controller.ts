@@ -9,7 +9,7 @@ export class ClaimController {
   @Post()
   async create(@Body() claim: ClaimDto) {
     try {
-      return this.claimService.create(claim);
+      return await this.claimService.create(claim);
     } catch (error) {
       throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
     }
@@ -26,8 +26,12 @@ export class ClaimController {
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() claim: ClaimDto) {
-    return this.claimService.update(id, claim);
+  async update(@Param('id') id: string, @Body() claim: ClaimDto) {
+    try {
+      return await this.claimService.update(id, claim);
+    } catch (error) {
+      throw new HttpException(error.message, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
   }
 
   @Delete(':id')

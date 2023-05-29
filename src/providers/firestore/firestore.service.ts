@@ -28,8 +28,8 @@ export class FirestoreService {
         }
 
         const res = await docRef.set(entity);
-        console.log("document Saved", res)
-        return res;
+        console.log("document Saved", res);
+        return entity;
     }
 
     async update<T>(collectionName: string, id: string, entity: T) {
@@ -42,8 +42,8 @@ export class FirestoreService {
         return res;
     }
 
-    async findById(collectionName: string, id: number) {
-        const collectionRef = this.db.collection(collectionName).doc(id.toString());
+    async findById(collectionName: string, id: string) {
+        const collectionRef = this.db.collection(collectionName).doc(id);
         const doc = await collectionRef.get();
         const data = doc.data();
         const exists = doc.exists;
