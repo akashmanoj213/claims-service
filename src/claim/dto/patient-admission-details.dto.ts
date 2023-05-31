@@ -9,8 +9,8 @@ export class PatientAdmissionDetailsDto {
     isPlannedHospitalisation: boolean;
     expectedNumberOfDaysStay: number; // is this part of hospital data
     expectedDaysInICU: number; // is this part of hosptial data
-    roomType: string; // is this part of hospital data
-    roomNursingPatiendDietCharges: number; // is this part of hospital data
+    roomType: RoomType; // is this part of hospital data
+    roomNursingPatientDietCharges: number; // is this part of hospital data ? HOW DO WE CALCULATE FOR COMBINED FIELDS LIKE THIS ?
     expectedInvestigationDiagnosticsCost: number; // is this part of hospital data
     ICUCharges: number; // is this part of hospital data
     OTCharges: number; // is this part of hospital data
@@ -25,4 +25,9 @@ export class PatientAdmissionDetailsDto {
 export class PastChronicIllness {
     illnesName: string;
     illnessStartDate: Date;
+}
+
+export enum RoomType {
+    AC = "AC",
+    NONAC = "Non-AC"
 }

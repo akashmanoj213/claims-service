@@ -7,12 +7,12 @@ export class DoctorTreatmentDetailsDto {
     dateOfFirstConsult: Date;
     pastHistoryOfAilment: string;
     provisionalDiagnosis: string;
-    ICDCode: string; // Check if ICD code is within insurance coverage
+    ICD11Code: string; // Check if ICD code is within insurance coverage
     proposedLineOfTreatment: lineOfTreatment;
     investigationOrMedicalDetails: string;
     routeOfDrugAdministration: string;
     nameOfSurgery: string;
-    surgeryICDCode: string; // ANYTHING TO CROSS CHECK HERE ?
+    surgeryICD11Code: string; // ANYTHING TO CROSS CHECK HERE ?
     otherTreatmentDetails: string;
     InjuryReason: string;
 }

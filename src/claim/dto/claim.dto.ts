@@ -11,10 +11,12 @@ export class ClaimDto {
     policyNumber: number;
     insuranceCardNumber: number; // might be generated at the time of issuance
     claimStatus: ClaimStatus;
+    claimType: ClaimType;
+    rejectionReason?: string;
     hospitalDetails: HospitlDetailsDto; // Check if hospital is in Network hospitals
-    maternityDetails: MaternityDetailsDto; // Check if insurance covers Maternity
+    maternityDetails?: MaternityDetailsDto; // Check if insurance covers Maternity
     doctorTreatmentDetails: DoctorTreatmentDetailsDto;
-    accidentDetails: AccidentDetailsDto
+    accidentDetails?: AccidentDetailsDto
     patientAdmissionDetails: PatientAdmissionDetailsDto
     patientDeclaration: PatientDeclarationDto; // Check if names in declaration are same as the patient details
     doctorDeclaration: DoctorDeclarationDto; //  Check if names in declaration are same as the doctor details
@@ -24,8 +26,13 @@ export class ClaimDto {
 export enum ClaimStatus {
     REVIEW = "review",
     QUERY = "query",
-    DENIED = "denied",
+    REJECTED = "rejected",
     REFERRED = "referred",
     APPROVED = "approved",
     CLOSED = "closed"
+}
+
+export enum ClaimType {
+    CASHLESS = "cashless",
+    REIMBURSEMENT = "reimbursement",
 }
