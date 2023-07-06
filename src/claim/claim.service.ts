@@ -12,6 +12,7 @@ export class ClaimService {
   readonly CLAIMS_COLLECTION = "claims"
   readonly NEW_CLAIMS_TOPIC = "claim-requests-tpa1";
   readonly CLAIMS_CHANGES_TOPIC = "claim-changes-pas";
+  readonly NOTIFICATION_TOPIC = "process-notification";
 
   constructor(
     @InjectRepository(HospitalPricingDetails)
@@ -34,7 +35,7 @@ export class ClaimService {
       const isValid = await this.claimDataValidation(claim);
 
       // If rates are higher than agreed upon, launch a query to check with the hospital
-      if(!isValid) {
+      if (!isValid) {
         claim.claimStatus = ClaimStatus.QUERY;
       }
     }
@@ -45,7 +46,25 @@ export class ClaimService {
     // Pushing to new_claims topic but will be replaced with pushBucket function
     await this.pubSubService.publishMessage(this.NEW_CLAIMS_TOPIC, savedClaim);
 
+    // Sent notification to customer
+    await this.notifyCustomer();
+
     return savedClaim;
+  }
+
+  async notifyCustomer(receiverNumber = null) {
+    const attributes = {
+      type: 'SMS'
+    }
+    // Replace with the right phone number once twillio implementation changes.
+    const messageBody = {
+      body: `Hi! A new claim request has been created in your name. You will be receiving updates as the status changes.`,
+      receiverNumber: '+9972976940'
+    }
+
+    const messageId = await this.pubSubService.publishMessage(this.NOTIFICATION_TOPIC, messageBody, attributes);
+
+    return messageId;
   }
 
   async findAll() {

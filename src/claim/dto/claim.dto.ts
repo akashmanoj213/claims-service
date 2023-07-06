@@ -30,7 +30,8 @@ export enum ClaimStatus {
     REFERRED = "referred",
     APPROVED = "approved",
     CLOSED = "closed"
-}
+} // add Initial , error . Payment pending, 
+// potential FWA - will be determined by a ML model (Might be driven by rules engine)
 
 export enum ClaimType {
     CASHLESS = "cashless",
